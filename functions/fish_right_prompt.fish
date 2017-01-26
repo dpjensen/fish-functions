@@ -1,8 +1,15 @@
 
 function bc_gradient
 
+    #Some batteries can report >100%
+    if test $argv -gt 100
+        set -g factor 100
+    else
+        set -g factor (echo $argv)
+    end
+
     #set -l strip_factor (echo $argv | grep -o "[0-9]*")
-    set -l factor (echo "scale=2; $argv / 100" | bc)
+    set -l factor (echo "scale=2; $factor / 100" | bc)
 
     set -l rred ( echo "scale=2; (255 * (1-$factor)) + (0 * $factor)" | bc )
     set -l rgreen ( echo "scale=2; (0 * (1-$factor)) + (255 * $factor)" | bc )
