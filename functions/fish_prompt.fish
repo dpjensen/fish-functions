@@ -49,6 +49,6 @@ function fish_prompt
     else
         set -e pstatus
     end
-    echo -n -s "$gear$orange2 "["$ppwd"]"$orange1@$orange0$host$normal$orange3::$ctime $git_info$pstatus $battery_state $normal$arrow "
+    echo -n -s "$gear$orange2 "["$ppwd"]"$orange1@$orange0$host$normal$orange3::$ctime $git_info$pstatus$normal$arrow "
 
 end
