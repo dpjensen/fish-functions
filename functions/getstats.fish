@@ -1,7 +1,7 @@
 function getstats
     echo "arg: $argv[1]"
 
-    switch $argv
+    switch $argv[1]
         case health
             curl 'localhost:9200/_cat/health?v'
         case indx
