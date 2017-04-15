@@ -40,7 +40,6 @@ function fish_right_prompt
     set -l normal (set_color normal)
     set -l voltage (echo -n "☇")
     set -l funct "𝜵 "
-    set -l ctemp (math (cat /sys/devices/platform/coretemp.0/hwmon/*/temp1_input)/1000)
     set -l battery_state (battery_info)
-    echo "$ctemp°C $voltage$battery_state"
+    echo "$voltage$battery_state"
 end

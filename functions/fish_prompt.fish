@@ -27,14 +27,13 @@ function fish_prompt
     set -l normal (set_color normal)
     set -l usr (whoami)
     set -l ppwd (prompt_pwd)
-    set -l gear $normal"⏻"
-    set -l funct "𝜵 "
+    set -l funct "𝜵"
     set -l arrow "→"
     set -l host (hostname)
     set -l ctime (timedatectl | grep "Local time" | awk '{print $5}' | grep -o "..:..")
 
     if test -n (git_current_branch)
-        set git_info $orange3"[⎇"(git_current_branch)"]"
+        set git_info $orange3"[⎇ "(git_current_branch)"]"
 
         if test -n (git_is_dirty)
             set -l dirty "$red 𝜵"
@@ -49,6 +48,6 @@ function fish_prompt
     else
         set -e pstatus
     end
-    echo -n -s "$gear$orange2 "["$ppwd"]"$orange1@$orange0$host$normal$orange3::$ctime $git_info$pstatus$normal$arrow "
+    echo -n -s "$funct$orange2 "["$ppwd"]"$orange1@$orange0$host$normal$orange3::$ctime $git_info$pstatus$normal$arrow "
 
 end
